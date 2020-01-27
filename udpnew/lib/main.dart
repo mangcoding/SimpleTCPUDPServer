@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final myController = TextEditingController();
 
   void _sendMessage() {
-    setState(() async {
+    setState(() {
       String message = myController.text;
       var codec = new Utf8Codec();
       List<int> dataToSend = codec.encode(message);
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
             rcvMessage = codec.decode(dg.data);
           }
         });
-        udpSocket.send(dataToSend, new InternetAddress('172.16.32.73'), 8008);
+        udpSocket.send(dataToSend, new InternetAddress('192.168.100.9'), 8008);
         print('Did send data on the stream..');
       });
       _message = rcvMessage;
