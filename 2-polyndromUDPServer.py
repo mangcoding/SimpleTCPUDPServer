@@ -1,5 +1,5 @@
 import socket
-address = ("localhost",8008)
+address = ("0.0.0.0",8008)
 
 #creating UDP socket
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

@@ -28,6 +28,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String _message = "";
   String rcvMessage = "";
+  final String ipserver = "192.168.100.9";
   final myController = TextEditingController();
 
   void _sendMessage() {
@@ -46,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
             rcvMessage = codec.decode(dg.data);
           }
         });
-        udpSocket.send(dataToSend, new InternetAddress('192.168.100.9'), 8008);
+        udpSocket.send(dataToSend, new InternetAddress(ipserver), 8008);
         print('Did send data on the stream..');
       });
       _message = rcvMessage;
